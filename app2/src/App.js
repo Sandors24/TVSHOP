@@ -1,10 +1,29 @@
 import React, { useState } from 'react'
+import {Drawer} from "./components/Drawer"
+import {Card} from "./components/Card"
+import {Header} from "./components/Header"
+
+const arr =[{title:"sony",price:"400$",imageUrl:"./tv/tv.png", img:"./img/btn-remove.png" },
+{title:" samsung",price:"600$",imageUrl:"./tv/tv1.png" , img:"./img/btn-remove.png" },
+{title:"lg",price:"800$",imageUrl:"./tv/tv2.png",img:"./img/btn-remove.png", },
+{title:"panasonic",price:"200$",imageUrl:"./tv/tv3.png" ,img:"./img/btn-remove.png" }
+
+]
 
 
 
-function App () { return (
+function App () { 
+  
+  const [cartOpened,setCartOpened]=React.useState(false)
+  
+  return (
 
   <div className="wrapper">
+
+    
+   {cartOpened ?<Drawer onClose={()=>setCartOpened(false)} />: null}
+    <Header onClickCart ={()=>setCartOpened(true)} />
+    
     <div className="overlay">
       <div className="drawer">
         <div className="korzina">
@@ -70,26 +89,7 @@ function App () { return (
       </div>
     </div>
   
-    <header>
-      <div className="headerleft">
-        <img src="./img/logo.png" alt="" />
-        <div className="headerinfo">
-          <h3>React Snecaers</h3>
-          <p>Shop Best Kross</p>
-        </div>
-      </div>
-  
-      <ul className="headerRight">
-        <li>
-          <span>400$</span>
-          <img width={18} height={18} src="./img/korzina.png" alt="" />
-        </li>
-        <li>
-          <img width={18} height={18} src="./img/user.png" alt="" />
-        </li>
-      </ul>
-    </header>
-  
+ 
     <div className="content">
       <div className="search">
         <h1>All Tv</h1>
@@ -98,69 +98,22 @@ function App () { return (
           <input placeholder="search" />
         </div>
       </div>
-  
-      <div className="TV">
-        <div className="card">
-          <div className="favorite">
-            <img src="./img/heardunliked.png" width={10} height={10} alt="" />
-          </div>
-          <img src="" alt="" />
-          <h5>Tv from Usa</h5>
-          <div>
-            <div>
-              <span>Price</span>
-              <b>400$</b>
-            </div>
-            <button className="button">
-              <img width={80} height={80} src="./tv/tv.png" alt="tv" />
-            </button>
-          </div>
-        </div>
-  
-        <div className="card">
-          <img src="" alt="" />
-          <h5>Tv from Usa</h5>
-          <div>
-            <div>
-              <span>Price</span>
-              <b>400$</b>
-            </div>
-            <button className="button">
-              <img width={80} height={80}src="./tv/tv3.png" alt="tv" />
-            </button>
-          </div>
-        </div>
-  
-        <div className="card">
-          <img src="" alt="" />
-          <h5>Tv from Usa</h5>
-          <div>
-            <div>
-              <span>Price</span>
-              <b>400$</b>
-            </div>
-            <button className="button">
-              <img width={80} height={80} src="./tv/tv1.png" alt="tv" />
-            </button>
-          </div>
-        </div>
-  
-        <div className="card">
-          <img src="" alt="" />
-          <h5>Tv from Usa</h5>
-          <div>
-            <div>
-              <span>Price</span>
-              <b>400$</b>
-            </div>
-            <button className="button">
-              <img width={80} height={80} src="./tv/tv2.png" alt="tv" />
-            </button>
-          </div>
-        </div>
       </div>
-    </div>
+  
+  
+
+
+  <div>
+    {arr.map((obj)=>(
+     <Card title={obj.title} price={obj.price} imageUrl={obj.imageUrl} img={obj.img}/>
+    ))}
+    <Card title="200" />
+
+  
+
   </div>
+  </div>
+  
   
   ) } export default App;
 
