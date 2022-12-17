@@ -7,8 +7,9 @@ export const Header = (props) => {
     <div className="headerleft">
       <img src="./img/logo.png" alt="" />
       <div className="headerinfo">
-        <h3>React Snecaers</h3>
-        <p>Shop Best Kross</p>
+        
+        
+        <h1>COCTAIL</h1>
       </div>
     </div>
 

@@ -29,9 +29,10 @@ setisAdded(!isAdded)
             <div>
               <span>Price</span>
               <b>{props.price}</b>
+              
             </div>
             <button className={styles.button} onClick={ OnClickButton} >
-              <img width={100} height={100} src={props.imageUrl} alt="tv" />
+              <img width={300} height={300} src={props.imageUrl} alt="tv" />
           </button>
           <button className={styles.korzina}  >  
               <img width={20}  height={20} onClick={OnClickPlus} src={isAdded?  "./img/like.png" : "./img/btn-remove.png" } alt="tv" /> 

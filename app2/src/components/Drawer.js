@@ -15,11 +15,14 @@ export const Drawer = (props) => {
     </div>
 
     <div className="Items">
-      <div className="CartItem">
-        <img src="./tv/tv.png" width={80} height={80} alt="" />
+      
+       
+      
+     
+        
 
         <div>
-          <p>Shot Best Kross</p>
+          <p>Coctail</p>
           <b>400$</b>
         </div>
         <img
@@ -31,13 +34,8 @@ export const Drawer = (props) => {
         />
       </div>
 
+      
       <div className="CartItem">
-        <img src="./tv/tv.png" width={80} height={80} alt="" />
-
-        <div>
-          <p>Shot Best Kross</p>
-          <b>400$</b>
-        </div>
         <img
           className="removebtn"
           src="./img/btn-remove.png"
@@ -62,8 +60,9 @@ export const Drawer = (props) => {
         </ul>
         <button>oformit zakaz</button>
       </div>
-    </div>
-  </div>
+      </div>
+    
+  
 
   )
 }

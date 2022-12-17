@@ -3,19 +3,35 @@ import {Drawer} from "./components/Drawer"
 import {Card} from "./components/Card"
 import {Header} from "./components/Header"
 
-const arr =[{title:"sony",price:"400$",imageUrl:"./tv/tv.png", img:"./img/btn-remove.png" },
-{title:" samsung",price:"600$",imageUrl:"./tv/tv1.png" , img:"./img/btn-remove.png" },
-{title:"lg",price:"800$",imageUrl:"./tv/tv2.png",img:"./img/btn-remove.png", },
-{title:"panasonic",price:"200$",imageUrl:"./tv/tv3.png" ,img:"./img/btn-remove.png" }
+const arr =[{"title":"sony","price":"400$","imageUrl":"./tv/tv.png", "img":"./img/btn-remove.png" },
+{"title":" samsung","price":"600$","imageUrl":"./tv/tv1.png" , "img":"./img/btn-remove.png" },
+{"title":"lg","price":"800$","imageUrl":"./tv/tv2.png","img":"./img/btn-remove.png", },
+{"title":"panasonic","price":"200$","imageUrl":"./tv/tv3.png" ,"img":"./img/btn-remove.png" }
 
 ]
 
 
 
+
+
+
 function App () { 
+
+const [id,setId]= React.useState([])
+
   
   const [cartOpened,setCartOpened]=React.useState(false)
-  
+
+React.useEffect(()=>{
+  fetch("https://637177d1025414c637f87b07.mockapi.io/id").then((res)=>{
+    return res.json()
+  })
+  .then((json)=>{
+    setId(json);
+  })
+},[])
+
+ 
   return (
 
   <div className="wrapper">
@@ -94,7 +110,7 @@ function App () {
       <div className="search">
         <h1>All Tv</h1>
         <div>
-          <img width={40} height={40} src="./tv/search.png" alt="search" />
+          <img width={80} height={80} src="./tv/search.png" alt="search" />
           <input placeholder="search" />
         </div>
       </div>
@@ -104,10 +120,10 @@ function App () {
 
 
   <div>
-    {arr.map((obj)=>(
-     <Card title={obj.title} price={obj.price} imageUrl={obj.imageUrl} img={obj.img}/>
+    {id.map((obj)=>(
+     <Card title={obj.title} price={obj.price} imageUrl={obj.imageUrl} img={obj.img} />
     ))}
-    <Card title="200" />
+    
 
   
 
